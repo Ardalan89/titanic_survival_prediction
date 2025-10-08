@@ -1,10 +1,8 @@
-import numpy as np
 import pandas as pd
 from joblib import dump
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from src.preprocessing import full_preprocessor
 from src.data_cleaning import clean_data
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
@@ -23,7 +21,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 # build full model pipeline 
 pipeline = Pipeline(steps=[
     ('preprocess', full_preprocessor),
-    ('model', LogisticRegression())
+    ('model', LogisticRegression(max_iter=1000, solver='liblinear', random_state=42))
 ])
 
 # train

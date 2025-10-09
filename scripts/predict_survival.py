@@ -5,7 +5,7 @@ from src.data_cleaning import clean_data
 import os
 
 # load trained model
-model_path = './models/model_naive_bayes.joblib'  
+model_path = './models/model_decision_tree.joblib'  
 pipeline = load(model_path)
 
 # load new data 
@@ -22,7 +22,7 @@ pred_path = './data/predict_survival.csv'
 
 pred_df = pd.DataFrame({
     'Survived': y,
-    'naive_bayes_pred': y_pred
+    'decision_tree_pred': y_pred
 })
 
 if not os.path.exists(pred_path):
@@ -31,7 +31,7 @@ if not os.path.exists(pred_path):
 else:
     existing = pd.read_csv(pred_path)
     if len(existing) == len(y):
-        existing['naive_bayes_pred'] = y_pred
+        existing['decision_tree_pred'] = y_pred
         existing.to_csv(pred_path, index=False)
         print(f"Updated existing file: {pred_path}")
     else:

@@ -18,7 +18,7 @@ X,y = clean_data(new_data)
 y_pred = pipeline.predict(X)
 
 # file path
-pred_path = './data/predict_survival.csv'
+pred_path = './results/predict_survival.csv'
 
 pred_df = pd.DataFrame({
     'Survived': y,

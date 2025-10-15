@@ -137,6 +137,16 @@ celerybeat.pid
 # data
 data/**
 
+# keep folder structures
+!data/
+!data/raw/
+!data/processed
+
+# keep placeholder
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/raw/README.md
+
 # Environments
 .env
 .envrc
